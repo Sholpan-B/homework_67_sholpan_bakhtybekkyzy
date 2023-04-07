@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            max-width: 900px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 15px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            font-weight: 600;
+            color: white;
+            background-color: blueviolet;
+            border-color: blueviolet;
+            font-size: large;
+            border-radius: 5px;
+            margin: 20px auto;
+        }
+
+        button:hover {
+            background-color: violet;
+            border-color: violet;
+        }
+
+        .modal {
+            
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .text {
+            display: block;
+            background-color: #fefefe;
+            margin: 50px 400px 10px 100px;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+            font-size:x-large;
+
+        }
+
+        input {
+            font-weight: 600;
+            color: white;
+            background-color: blueviolet;
+            border-color: blueviolet;
+            font-size: large;
+            border-radius: 5px;
+            width: 100px
+        }
+        input:hover {
+            background-color: violet;
+            border-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <div id="myModal" class="modal">  
+        <div id="container">
+            <input id="add-item-btn" type="button" value="+">
+        </div>
+    </div>  
+
+
+    <script>
+        custom_alert = function () {
+            const container = document.getElementById('container');
+            const div = document.createElement('div');
+            const p = document.createElement('p');
+            const div2 = document.createElement('div');
+            const button = document.createElement('button');
+            p.classList.add('text');
+            p.textContent = 'Новый <div> добавлен!  ';
+            button.classList.add("btn-primary");
+            button.innerText = 'Закрыть';
+            button.addEventListener('click', function () {
+                div.remove()
+            });
+            setTimeout(function () {
+                div.remove()
+            }, 5000);
+            div2.appendChild(button);
+            p.appendChild(div2);
+            div.appendChild(p);
+            container.appendChild(div);
+        };
+
+        let input = document.getElementById('add-item-btn');
+        input.addEventListener('click', custom_alert);
+       
+    </script>
+</body>
+</html>
